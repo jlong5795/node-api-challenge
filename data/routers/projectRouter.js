@@ -1,5 +1,4 @@
 const express = require('express');
-const Actions = require('../helpers/actionModel.js');
 const Projects = require('../helpers/projectModel.js');
 const router = express.Router();
 
@@ -97,7 +96,7 @@ function validateProject(req, res, next) {
   };
 
   if(isEmpty(req.body)) {
-    res.status(400).json({ error: "Missing post data." });
+    res.status(400).json({ error: "Missing required data." });
   } else {
     if (!req.body.name || !req.body.description) {
       res.status(400).json({ error: "Missing required text field." });
